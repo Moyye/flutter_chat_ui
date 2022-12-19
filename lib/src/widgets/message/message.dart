@@ -287,7 +287,6 @@ class Message extends StatelessWidget {
                     )
                   : null,
             ),
-          if (currentUserIsAuthor && showUserAvatars) _avatarBuilder(),
         ],
       ),
     );
