@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
@@ -139,7 +141,10 @@ class _ImageMessageState extends State<ImageMessage> {
     } else {
       return Container(
         constraints: BoxConstraints(
-          maxHeight: widget.messageWidth.toDouble(),
+          maxHeight: min(
+            140,
+            widget.messageWidth.toDouble(),
+          ),
           maxWidth: 140,
         ),
         child: AspectRatio(
