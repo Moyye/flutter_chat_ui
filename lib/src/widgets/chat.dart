@@ -38,6 +38,7 @@ class Chat extends StatefulWidget {
     this.bubbleBuilder,
     this.bubbleRtlAlignment = BubbleRtlAlignment.right,
     this.customBottomWidget,
+    this.bottomWidget,
     this.customDateHeaderText,
     this.customMessageBuilder,
     this.customStatusBuilder,
@@ -118,6 +119,8 @@ class Chat extends StatefulWidget {
   /// a channel view. If you're looking for the bottom widget added to the chat
   /// list, see [listBottomWidget] instead.
   final Widget? customBottomWidget;
+
+  final Widget? bottomWidget;
 
   /// If [dateFormat], [dateLocale] and/or [timeFormat] is not enough to
   /// customize date headers in your case, use this to return an arbitrary
@@ -464,6 +467,7 @@ class ChatState extends State<Chat> {
                             onSendPressed: widget.onSendPressed,
                             options: widget.inputOptions,
                           ),
+                      widget.bottomWidget ?? const SizedBox.shrink(),
                     ],
                   ),
                 ),
