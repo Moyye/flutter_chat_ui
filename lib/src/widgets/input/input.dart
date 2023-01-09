@@ -19,6 +19,7 @@ class Input extends StatefulWidget {
     super.key,
     this.isAttachmentUploading,
     this.onAttachmentPressed,
+    this.padding,
     required this.onSendPressed,
     this.options = const InputOptions(),
   });
@@ -38,6 +39,8 @@ class Input extends StatefulWidget {
 
   /// Customisation options for the [Input].
   final InputOptions options;
+
+  final EdgeInsets? padding;
 
   @override
   State<Input> createState() => _InputState();
@@ -167,7 +170,7 @@ class _InputState extends State<Input> {
           child: Container(
             decoration:
                 InheritedChatTheme.of(context).theme.inputContainerDecoration,
-            padding: safeAreaInsets,
+            padding: widget.padding ?? safeAreaInsets,
             child: Row(
               textDirection: TextDirection.ltr,
               children: [
